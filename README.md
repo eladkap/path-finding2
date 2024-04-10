@@ -13,6 +13,7 @@ Path-finding visualization application developed in JavaScript
 - Path-finding Algorithms
 - Maze Generation Algorithm
 - Object Oriented Programming
+- HTML DOM
 - Async-Await Mechanism
 
 ### Launch
