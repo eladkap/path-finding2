@@ -3,6 +3,7 @@ class Vertex {
     this.row = row;
     this.col = col;
     this.domElement = domElement;
+    this.backcolor = 'white';
     this.label = '';
     this.visited = false;
     this.focused = false;
@@ -23,6 +24,15 @@ class Vertex {
   setLabel(label) {
     this.label = label;
     this.domElement.textContent = label;
+  }
+
+  getBackcolor() {
+    return this.backcolor;
+  }
+
+  setBackcolor(backcolor) {
+    this.backcolor = backcolor;
+    this.domElement.style.background = backcolor;
   }
 
   isVisited() {

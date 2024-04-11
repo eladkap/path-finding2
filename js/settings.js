@@ -37,6 +37,10 @@ const START_VERTEX_COL = Math.floor(GRID_COLS / 4);
 const END_VERTEX_ROW = Math.floor(GRID_ROWS / 2);
 const END_VERTEX_COL = Math.floor(GRID_COLS * 0.75);
 
+const START_VERTEX_BACKCOLOR = RED;
+const END_VERTEX_BACKCOLOR = GREEN;
+
+
 const WALL_DENSITY = 0.2;
 
 /* SEARCH */
