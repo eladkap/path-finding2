@@ -4,14 +4,17 @@ body {
     padding: 0;
     width: 100%;
     height: 100%;
-    background-color: rgb(50, 50, 50);
+    overflow: hidden;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: var(--background-color);
 
     --text-color: white;
     --header-color: white;
     --header-color-disabled: rgb(170, 64, 64);
     --background-color: rgb(250, 250, 250);
     --navbar-backcolor: #2d394b;
-    --canvas-backcolor: rgb(250, 250, 250);
+    --grid-backcolor: rgb(250, 250, 250);
+    --grid-bordercolor: rgb(32, 114, 106);
     --header-color: rgb(250, 250, 250);
     --para-color: rgb(120, 200, 240);
     --btn-backcolor: #2d394b;
@@ -35,13 +38,13 @@ h1, h2, h3, h4, h5 {
 .grid-container {
     display: grid;
     grid-template-columns: repeat(63, auto);
-    background-color: rgb(50, 50, 50);
+    background-color: var(--grid-backcolor);
     margin: 20px;
 }
 
 .grid-item {
-    background-color: rgb(50, 50, 50);
-    border: 1px solid rgb(100, 100, 100);
+    background-color: var(--grid-backcolor);
+    border: 0.5px solid var(--grid-bordercolor);
     padding: 5px;
     /* font-size: 20px; */
     height: 20px;
