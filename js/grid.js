@@ -4,6 +4,7 @@ class Grid {
     this.cols = cols;
     this.matrix = [];
     this.create();
+    this.setNeighbors()
   }
 
   create() {
@@ -43,6 +44,41 @@ class Grid {
 
   setVertexType(i, j, vertexType) {
     this.matrix[i][j].setVertexType(vertexType);
+  }
+
+  setNeighbors() {
+    for (let i = 0; i < this.rows; i++) {
+      for (let j = 0; j < this.cols; j++) {
+        let vertex = this.matrix[i][j];
+        for (let a = -1; a <= 1; a++) {
+          for (let b = -1; b <= 1; b++) {
+            if (
+              (a != 0 || b != 0) &&
+              i + a >= 0 &&
+              i + a < this.rows &&
+              j + b >= 0 &&
+              j + b < this.cols &&
+              Math.abs(a + b) == 1
+            ) {
+              vertex.addNeighbor(this.matrix[i + a][j + b]);
+
+              if (a == 0 && b == -1) {
+                vertex.directions["left"] = this.matrix[i + a][j + b];
+              }
+              if (a == 0 && b == 1) {
+                vertex.directions["right"] = this.matrix[i + a][j + b];
+              }
+              if (a == -1 && b == 0) {
+                vertex.directions["top"] = this.matrix[i + a][j + b];
+              }
+              if (a == 1 && b == 0) {
+                vertex.directions["bottom"] = this.matrix[i + a][j + b];
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
   clearWalls() {

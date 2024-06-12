@@ -14,7 +14,8 @@ class Vertex {
     this.vertexType = BLANK_VERTEX;
     this.parent = null;
     this.distance = 0;
-    this.neighbors = { right: null, left: null, top: null, bottom: null };
+    this.neighbors = [];
+    this.directions = { right: null, left: null, top: null, bottom: null };
   }
 
   getLabel() {
@@ -141,5 +142,9 @@ class Vertex {
 
   getNeighbor(direction) {
     return this.neighbors[direction];
+  }
+
+  addNeighbor(neighbor) {
+    this.neighbors.push(neighbor);
   }
 }
