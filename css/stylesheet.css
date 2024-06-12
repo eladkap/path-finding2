@@ -29,6 +29,7 @@ body {
     --end-vertex-backcolor: rgb(0, 100, 0);
     --end-vertex-chosen-backcolor: rgb(90, 150, 90);
     --wall-backcolor: rgb(50, 50, 50);
+    --blank-backcolor: rgb(255, 255, 255);
 }
 
 h1, h2, h3, h4, h5 {

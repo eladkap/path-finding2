@@ -105,6 +105,18 @@ class Vertex {
 
   setVertexType(type) {
     this.vertexType = type;
+    if (type == START_VERTEX) {
+      this.setBackcolor(getComputedStyle(document.body).getPropertyValue('--start-vertex-backcolor'));
+    }
+    else if (type == END_VERTEX) {
+      this.setBackcolor(getComputedStyle(document.body).getPropertyValue('--end-vertex-backcolor'));
+    }
+    else if (type == BLANK_VERTEX) {
+      this.setBackcolor(getComputedStyle(document.body).getPropertyValue('--blank-backcolor'));
+    }
+    else if (type == WALL_VERTEX) {
+      this.setBackcolor(getComputedStyle(document.body).getPropertyValue('--wall-backcolor'));
+    }
   }
 
   getParent() {
