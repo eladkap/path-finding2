@@ -123,10 +123,97 @@ class Application {
       this.algoSpeed = this.setAlgoSpeedSelector.value;
   }
 
+  chooseSearchAlgoOption(event) {
+    this.searchAlgo = event.target.value;
+    console.log(`Search algo chosen: ${this.searchAlgo}`);
+  }
+
+  chooseAlgoSpeed(event) {
+      this.algoSpeed = event.target.value;
+      this.setDelay();
+      console.log(`Algo speed chosen: ${this.algoSpeed}`);
+  }
+
+  setDelay() {
+      if (this.algoSpeed == 'fast') {
+          DELAY_IN_MILLISEC = 1;
+      }
+      else if (this.algoSpeed == 'average') {
+          DELAY_IN_MILLISEC = 10;
+      }
+      else {
+          DELAY_IN_MILLISEC = 15;
+      }
+  }
+
+  clearWalls() {
+    this.grid.clearWalls();
+  }
+
+  generateWalls() {
+    for (let vertex of this.grid.vertices) {
+      if (
+          vertex.getVertexType() != START_VERTEX &&
+          vertex.getVertexType() != END_VERTEX
+      ) {
+        if (Math.random() < WALL_DENSITY) {
+            vertex.setVertexType(WALL_VERTEX);
+        } else {
+            vertex.setVertexType(BLANK_VERTEX);
+        }
+      }
+    }
+  }
+
   async generateMaze() {
     this.setEnabledControls(false);
     await generateMazeRecursively(this.grid);
-    // this.updateCanvas();
     this.setEnabledControls(true);
+  }
+
+  clearPath() {
+    this.grid.reset();
+  }
+
+  async runSearch() {
+    console.log('Run search');
+    this.setEnabledControls(false);
+    let result = await this.startSearch();
+    console.log('Search finished');
+    if (result) {
+      console.log('Path found.');
+      await this.showPath();
+    } else {
+      console.log('No path found.');
+      window.alert('No path found.');
+    }
+    this.setEnabledControls(true);
+  }
+
+  async startSearch() {
+      if (this.searchAlgoSelector.value == "BFS") {
+          return await bfs(this.grid, this.startVertex, this.endVertex);
+      } else if (this.searchAlgoSelector.value == "DFS") {
+          return await dfs(this.grid, this.startVertex, this.endVertex);
+      } else if (this.searchAlgoSelector.value == "A-star") {
+          return await astar(this.grid, this.startVertex, this.endVertex);
+      }
+  }
+
+  async showPath() {
+      console.log("Show path...");
+      let path = [];
+      let v = this.endVertex;
+      while (v != this.startVertex) {
+          path.push(v);
+          v = v.getParent();
+      }
+      for (let i = path.length - 1; i >= 0; i--) {
+          let v = path[i];
+          if (v != this.endVertex && v != this.startVertex) {
+              await Utils.sleep(DELAY_IN_MILLISEC * 10);
+              v.setBackcolor(YELLOW);
+          }
+      }
   }
 }

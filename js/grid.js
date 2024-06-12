@@ -7,6 +7,7 @@ class Grid {
   }
 
   create() {
+    this.vertices = [];
     this.container = document.getElementById('grid-container');
 
     for (let i = 0; i < GRID_ROWS; i++) {
@@ -22,6 +23,7 @@ class Grid {
         this.container.appendChild(cell);
         let vertex = new Vertex(i, j, cell);
         row.push(vertex);
+        this.vertices.push(vertex);
       }
       this.matrix.push(row);
     }
