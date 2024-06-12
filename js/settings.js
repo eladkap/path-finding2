@@ -1,5 +1,5 @@
-const GRID_ROWS = 16;
-const GRID_COLS = 32;
+const GRID_ROWS = 23;
+const GRID_COLS = 63;
 
 var DELAY_IN_MILLISEC = 5;
 

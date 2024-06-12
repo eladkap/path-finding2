@@ -8,6 +8,56 @@
     <link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
   </head>
   <body>
+    <div class="navbar">
+      <a href="index.html" class="brand">
+        Pathfinding Visualizer
+      </a>
+
+      <ul>
+        <li>
+          <a id="a-generate-maze" onclick="app.generateMaze()">
+            Generate maze
+          </a>
+        </li>
+        <li>
+          <a id="a-generate-walls" onclick="app.generateWalls()">
+            Generate walls
+          </a>
+        </li>
+        <li>
+          <a id="a-clear-walls" onclick="app.clearWalls()">Clear walls</a>
+        </li>
+        <li>
+          <label for="search-algo-selector">Algorithms</label>
+          <select name="search--algo-selector" id="search-algo-selector" onchange="app.chooseSearchAlgoOption(event)">
+            <option value="BFS">Breadth First Search</option>
+            <option value="DFS">Depth First Search</option>
+            <option value="A-star">A-Star</option>
+          </select>
+        </li>
+        <li>
+          <button id="btn-visualize" class="btn-visualize" onclick="app.runSearch()">Visualize</button>
+        </li>
+        <li>
+          <a id="a-clear-path" onclick="app.clearPath()">Clear path</a>
+        </li>
+        <li>
+          <label for="algo-speed-selector">Speed</label>
+          <select name="search-algo-selector" id="algo-speed-selector" onchange="app.chooseAlgoSpeed(event)">
+            <option value="fast">Fast</option>
+            <option value="average">Average</option>
+            <option value="slow">Slow</option>
+          </select>
+        </li>
+      </ul>
+    </div>
+  
+    <div class="container-center">
+      <p style="text-align: center; color: black;">
+        Pick an algorithm and visualize it.
+      </p>
+    </div>
+
     <div id="grid-container" class="grid-container"></div>
 
     <script type="text/javascript" src="js/settings.js"></script>

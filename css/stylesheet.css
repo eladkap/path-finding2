@@ -1,24 +1,187 @@
 html,
 body {
+    margin: 0;
+    padding: 0;
     width: 100%;
     height: 100%;
     background-color: rgb(50, 50, 50);
+
+    --text-color: white;
+    --header-color: white;
+    --header-color-disabled: rgb(170, 64, 64);
+    --background-color: rgb(250, 250, 250);
+    --navbar-backcolor: #2d394b;
+    --canvas-backcolor: rgb(250, 250, 250);
+    --header-color: rgb(250, 250, 250);
+    --para-color: rgb(120, 200, 240);
+    --btn-backcolor: #2d394b;
+    --btn-visualize-bg: rgb(10, 90, 10);
+    --btn-backcolor-disabled: rgb(180, 180, 180);
+    --btn-forecolor: white;
+    --btn-hover-forecolor: #40e0d0;
+    --game-states-header-color: rgb(80, 140, 240);
+    --dialog-backcolor: rgb(230, 230, 230);
+    --start-vertex-backcolor: rgb(200, 0, 0);
+    --start-vertex-chosen-backcolor: rgb(190, 100, 100);
+    --end-vertex-backcolor: rgb(0, 100, 0);
+    --end-vertex-chosen-backcolor: rgb(90, 150, 90);
+    --wall-backcolor: rgb(50, 50, 50);
 }
 
+h1, h2, h3, h4, h5 {
+    color: var(--header-color);
+}
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(32, auto);
-    background-color: bisque;
+    grid-template-columns: repeat(63, auto);
+    background-color: rgb(50, 50, 50);
     margin: 20px;
 }
 
 .grid-item {
-    background-color: bisque;
-    border: 1px solid rgb(70, 70, 70);
+    background-color: rgb(50, 50, 50);
+    border: 1px solid rgb(100, 100, 100);
     padding: 5px;
     /* font-size: 20px; */
     height: 20px;
     width: auto;
     text-align: center;
+}
+
+.navbar {
+    background-color: var(--navbar-backcolor);
+    margin: 0 auto;
+    width: 100%;
+    max-height: 4rem;
+    padding-left: 1rem;
+    display: flex;
+}
+
+.navbar ul {
+    list-style-type: none;
+    background-color: var(--topnav-backcolor);
+    display: block;
+    align-items: center;
+    justify-content: space-evenly;
+    overflow: hidden;
+}
+
+ul li {
+    float: left;
+    margin-left: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+ul button {
+    font-size: medium;
+    background-color: var(--btn-backcolor);
+    color: var(--btn-forecolor);
+    border-radius: 5px;
+    display: block;
+    text-align: center;
+}
+
+ul button:hover {
+    color: var(--btn-hover-forecolor);
+    transition: 0s;
+}
+
+.btn-visualize {
+    cursor: pointer;
+    font-size: large;
+    background-color: var(--btn-visualize-bg);
+    color: var(--btn-forecolor);
+    border-radius: 5px;
+    margin-top: 0.2rem;
+    min-width: 8rem;
+    display: block;
+    text-align: center;
+    border-style: none;
+}
+
+ul a {
+    cursor: pointer;
+    font-size: large;
+    color: var(--btn-forecolor);
+    margin-top: 0.3rem;
+}
+
+ul a:hover {
+    color: var(--btn-hover-forecolor);
+}
+
+a {
+    text-decoration: none;
+    color: var(--header-color);
+}
+
+a:hover {
+    color: var(--btn-hover-forecolor);
+}
+
+.brand {
+    font-size: x-large;
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+label {
+    font-family: sans-serif;
+    font-size: medium;
+    font-weight: bold;
+    margin-left: 1rem;
+    color: var(--text-color);
+    padding-top: 0.3rem;
+}
+
+select {
+    background-color: var(--btn-backcolor);
+    color: var(--btn-forecolor);
+    font-size: medium;
+    margin-left: 1rem;
+    margin-top: 0.3rem;
+}
+
+.tutorial-dialog {
+    display: none;
+    background-color: var(--dialog-backcolor);
+    position: fixed;
+    z-index: 1;
+    border-style: solid;
+    margin-top: 100px;
+    margin-left: 20%;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    width: 60%;
+    height: 50%;
+    overflow: auto;
+}
+
+.tutorial-dialog h1 {
+    color: black;
+}
+
+.dialog-content {
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    margin-right: 20px;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }

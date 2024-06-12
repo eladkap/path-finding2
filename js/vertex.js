@@ -57,6 +57,22 @@ class Vertex {
 
   setChosen(value) {
     this.chosen = value;
+    if (value) {
+      if (this.vertexType == START_VERTEX) {
+        this.setBackcolor(REDLIGHT);
+      }
+      else if (this.vertexType == END_VERTEX) {
+        this.setBackcolor(GREENLIGHT);
+      }
+    }
+    else {
+      if (this.vertexType == START_VERTEX) {
+        this.setBackcolor(RED);
+      }
+      else if (this.vertexType == END_VERTEX) {
+        this.setBackcolor(GREEN);
+      }
+    }
   }
 
   getFValue() {
@@ -81,6 +97,14 @@ class Vertex {
 
   setHValue(h) {
     this.hValue = h;
+  }
+
+  getVertexType() {
+    return this.vertexType;
+  }
+
+  setVertexType(type) {
+    this.vertexType = type;
   }
 
   getParent() {
