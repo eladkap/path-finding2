@@ -18,7 +18,7 @@ class Grid {
         cell.setAttribute('col', j);
         cell.textContent = '';
 
-        cell.addEventListener('click', onClickCell);
+        cell.addEventListener('click', app.onClickCell);
         this.container.appendChild(cell);
         let vertex = new Vertex(i, j, cell);
         row.push(vertex);
